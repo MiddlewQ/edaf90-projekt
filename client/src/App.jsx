@@ -5,7 +5,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
-import YouTubeVideo from './getVideo'
+import YouTubeVideo from './YoutubeVideo'
 
 
 function App() {

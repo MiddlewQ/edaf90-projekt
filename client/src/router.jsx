@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import PostList from './PostList'
 import About from './About'
-import YouTubeVideo from "./getVideo";
+import YouTubeVideo from "./YoutubeVideo";
 import PostForm from "./PostForm";
 
 
