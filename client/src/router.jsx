@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
-import Posts from './Posts'
+import PostList from './PostList'
 import About from './About'
+import YouTubeVideo from "./getVideo";
+import PostForm from "./PostForm";
 
 
 const router = createBrowserRouter([
@@ -10,6 +12,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                Component: YouTubeVideo,
             },
             {
                 path: "about",
@@ -17,8 +20,13 @@ const router = createBrowserRouter([
             }, 
             {
                 path: "posts",
-                Component: Posts,
+                Component: PostList,
+                children: []
             },
+            {
+                path: "posts/new-post",
+                Component: PostForm
+            }
         ]
     },
     {
