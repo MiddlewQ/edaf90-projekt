@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
+import Posts from './Posts'
+import About from './About'
 
 
 const router = createBrowserRouter([
@@ -8,14 +10,22 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <p>Welcome to my own salad bar</p>
+            },
+            {
+                path: "about",
+                Component: About,
             }, 
+            {
+                path: "posts",
+                Component: Posts,
+            },
         ]
     },
     {
         path: "*",
-        element: <h1>page not found!</h1>    
+        element: <h1>Error 404: page not found!</h1>    
     },
+    
 
 ]);
 
