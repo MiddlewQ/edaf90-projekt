@@ -1,7 +1,7 @@
 function Posts() {
     return (
         <>
-            <h1>Post base site</h1>
+            <h2>Post base site</h2>
         </>
     );
 }

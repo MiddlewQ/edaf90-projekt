@@ -5,6 +5,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import YouTubeVideo from './getVideo'
+
 
 function App() {
     const [count, setCount] = useState(0)
@@ -15,6 +17,7 @@ function App() {
         <div className="container-fluid py-4">
             <Header />
             <Navbar />
+            <YouTubeVideo />
             <Outlet />
             <Footer />
         </div>
