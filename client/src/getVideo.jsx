@@ -3,13 +3,16 @@ import React, { useState, useEffect } from 'react';
 const YouTubeVideo = () => {
   const [videoDetails, setVideoDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  
+  const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY;   
+  const videoId = import.meta.env.VITE_YOUTUBE_VIDEO_ID; 
 
   useEffect(() => {
     // Function to fetch video details
     const fetchVideoDetails = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${process.env.YOUTUBE_VIDEO_KEY}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${apiKey}`
         );
         
         if (!response.ok) {
@@ -25,14 +28,20 @@ const YouTubeVideo = () => {
         }
       } catch (error) {
         console.error('Error fetching video details:', error);
+      } finally {
+        setLoading(false); // Stop loading spinner
       }
     };
 
     fetchVideoDetails();
-  }, [process.env.YOUTUBE_VIDEO_KEY]);
+  }, [videoId, apiKey]);
+
+  if (isLoading) {
+    return <BootstrapSpinner loading={isLoading} />;
+  }
 
   if (!videoDetails) {
-    return <div>Loading video details...</div>;
+    return <div>No video details available.</div>;
   }
 
   const { title, description } = videoDetails.snippet;
@@ -40,11 +49,10 @@ const YouTubeVideo = () => {
   return (
     <div>
       <div className="video-container">
-        {/* Embed the YouTube video using an iframe */}
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${process.env.YOUTUBE_VIDEO_KEY}`}
+          src={`https://www.youtube.com/embed/${videoId}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -58,18 +66,14 @@ const YouTubeVideo = () => {
   );
 };
 
-
-
-
 function BootstrapSpinner({ loading }) {
-    return loading ? (
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+  return loading ? (
+    <div className="d-flex justify-content-center">
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
       </div>
-    ) : null;
-  }
-  
+    </div>
+  ) : null;
+}
 
 export default YouTubeVideo;
