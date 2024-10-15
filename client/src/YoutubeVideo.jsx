@@ -44,7 +44,9 @@ const YouTubeVideo = () => {
     return <div>No video details available.</div>;
   }
 
-  const { title, description } = videoDetails.snippet;
+  console.log(videoDetails.snippet);
+  const { title, description, channelTitle} = videoDetails.snippet;
+  const { viewCount, likeCount } = videoDetails.statistics;
 
   return (
     <div>
@@ -59,8 +61,16 @@ const YouTubeVideo = () => {
         ></iframe>
       </div>
       <div className="video-details">
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <h3>{title}</h3>
+        <div style={{ display: 'flex' }}>
+          <p>{likeCount}</p>
+          <img
+            src="images/upvote.png"
+            alt="like icon"
+            style={{ width: '15px', height: '15px' }}
+            />
+        </div>
+        <p>{viewCount} Views</p>
       </div>
     </div>
   );
