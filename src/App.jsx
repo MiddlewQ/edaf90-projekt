@@ -13,7 +13,6 @@ function App() {
         <>
 
         <div className="container-fluid py-4">
-            <h1>Test start page</h1>
             <Header />
             <Navbar />
             <Outlet />
@@ -27,7 +26,7 @@ function App() {
 function Header() {
     return (
     <header className="pb-3 mb-4 border-bottom">
-        <span className="fs-4">Test</span>
+        <span className="fs-4">Prog4Lyfe</span>
       </header>
     )
   }
