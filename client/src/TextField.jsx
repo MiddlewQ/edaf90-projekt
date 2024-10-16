@@ -5,7 +5,8 @@ function TextField({ type, id, placeholder, onChange, isTextArea=false }) {
             id={id} 
             placeholder={placeholder} 
             onChange={onChange}
-            rows="5" // Adjust number of rows as needed
+            rows="5"
+            required
         />
     ) : (
         <input 
@@ -14,6 +15,7 @@ function TextField({ type, id, placeholder, onChange, isTextArea=false }) {
             id={id} 
             placeholder={placeholder} 
             onChange={onChange}
+            required
         />
     );
 }

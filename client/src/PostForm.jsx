@@ -5,11 +5,13 @@ import Post from "./Post";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function PostForm() {
+    const [title, setTitle] = useState('');
+    const [postContent, setPostContent] = useState('');
+    const [errors, setErrors] = useState('')
+    const [touched, setTouched] = useState(false);
     const { addPost } = useOutletContext();
     const navigate = useNavigate();
 
-    const [title, setTitle] = useState('');
-    const [postContent, setPostContent] = useState('');
 
     function handleKeyDown(e) {
         if (e.key === 'Tab') {
@@ -35,10 +37,17 @@ function PostForm() {
         const value = event.target.value;
         handleKeyDown(value);
     }
+    
 
     async function handleSubmit(event) {
         event.preventDefault();
-    
+        setTouched(true);
+
+        if (title === "" || postContent === "") {
+            setErrors("All fields must be filled!")
+            return;
+        }
+        
         const post = new Post();
         post.setTitle(title);
         post.setPostContent(postContent);
@@ -62,14 +71,14 @@ function PostForm() {
         navigate('/posts');
         setTitle("");
         setPostContent("");
-
+        setTouched(false);
     }
 
     return (
         <div className="container col-12">
             <div className="row h-200 p-5 bg-light border rounded-3">
                 <h2>Nytt inlägg</h2>
-                <form onSubmit={handleSubmit}>
+                <form noValidate onSubmit={handleSubmit} className={touched ? "was-validated" : ""}>
                 <div className="form-group">
                     <label htmlFor="title" className="mt-4">Titel</label>
                     <TextField
@@ -87,8 +96,13 @@ function PostForm() {
                     onKeyDown={handleKeyDown}
                     isTextArea={true}
                     />
+                     {errors && (
+                        <div className="mt-4 alert alert-warning" role="alert">
+                            {errors}
+                        </div>
+                    )}
+
                     <input type="submit" className="mt-4 btn btn-primary"></input>
-                    
                 </div>
                 </form>
                 <div className="mt-5"> 
