@@ -22,13 +22,6 @@ class Post {
         return this;
     }
 
-    toJSON() {
-        return {
-            uuid: this.uuid,
-            title: this.title,
-            postContent: this.postContent,
-        }
-    }
 }
 
 export default Post;

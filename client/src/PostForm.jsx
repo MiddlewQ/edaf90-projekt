@@ -36,7 +36,7 @@ function PostForm() {
         handleKeyDown(value);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
     
         const post = new Post();
@@ -44,11 +44,25 @@ function PostForm() {
         post.setPostContent(postContent);
     
         addPost(post);
-        navigate('/posts');
+        const response = await fetch('http://localhost:3000/posts/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post),
+        });
     
+        if(!response.ok) {
+        throw new error("Failure to upload post");
+        return;
+        }
+    
+        const result = await response.json();
+
+        navigate('/posts');
         setTitle("");
         setPostContent("");
-        
+
     }
 
     return (
