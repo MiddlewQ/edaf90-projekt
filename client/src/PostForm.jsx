@@ -1,24 +1,54 @@
 import TextField from "./TextField";
 import { useState } from "react";
 import ReactMarkdown from 'react-markdown';
+import Post from "./Post";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 function PostForm() {
-    const [title, setTitle] = useState();
-    const [post, setPost] = useState();
+    const { addPost } = useOutletContext();
+    const navigate = useNavigate();
+
+    const [title, setTitle] = useState('');
+    const [postContent, setPostContent] = useState('');
+
+    function handleKeyDown(e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const { selStart, selEnd} = e.target;
+
+            SVGTextContentElement((prevContent) =>
+                prevContent.substring(0, selStart) + "    " + prevContent.substring(selEnd)
+            );
+
+            setTimeout(() => {
+                e.target.selStart = e.target.selEnd = selStart + 4;
+            }, 0);
+        }
+    }
 
     function handleTitle(event) {
         setTitle(event.target.value);
     }
 
     function handlePost(event) {
-        setPost(event.target.value);
+        setPostContent(event.target.value);
+        const value = event.target.value;
+        handleKeyDown(value);
     }
 
     function handleSubmit(event) {
         event.preventDefault();
-
-        console.log(title)
-        console.log(post)
+    
+        const post = new Post();
+        post.setTitle(title);
+        post.setPostContent(postContent);
+    
+        addPost(post);
+        navigate('/posts');
+    
+        setTitle("");
+        setPostContent("");
+        
     }
 
     return (
@@ -40,6 +70,7 @@ function PostForm() {
                     id="post"
                     placeholder="Write your post in Markdown..."
                     onChange={handlePost}
+                    onKeyDown={handleKeyDown}
                     isTextArea={true}
                     />
                     <input type="submit" className="mt-4 btn btn-primary"></input>
@@ -49,7 +80,7 @@ function PostForm() {
                 <div className="mt-5"> 
                     <h3>Preview</h3>
                     <ReactMarkdown>{`## ${title || ''}`}</ReactMarkdown>
-                    <ReactMarkdown>{post}</ReactMarkdown>
+                    <ReactMarkdown>{postContent}</ReactMarkdown>
                 </div>
             </div>
         </div>

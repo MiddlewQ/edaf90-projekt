@@ -11,13 +11,17 @@ import YouTubeVideo from './YoutubeVideo'
 function App() {
     const [posts, setPosts] = useState([])
 
+    function addPost(post) {
+      setPosts([...posts, post]);
+    }
+
     return (
         <>
 
         <div className="container-fluid py-4">
             <Header />
             <Navbar />
-            <Outlet />
+            <Outlet context={{ addPost, posts }}/>
             <Footer />
         </div>
         </>

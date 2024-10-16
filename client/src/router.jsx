@@ -4,6 +4,7 @@ import PostList from './PostList'
 import About from './About'
 import YouTubeVideo from "./YoutubeVideo";
 import PostForm from "./PostForm";
+import PostDetail from "./PostDetail";
 
 
 const router = createBrowserRouter([
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
             {
                 path: "posts/new-post",
                 Component: PostForm
-            }
+            },
+            {
+                path: "posts/:postId",
+                Component: PostDetail
+            },
         ]
     },
     {
