@@ -45,7 +45,7 @@ const YouTubeVideo = () => {
   }
 
   console.log(videoDetails.snippet);
-  const { title, description, channelTitle} = videoDetails.snippet;
+  const { title } = videoDetails.snippet;
   const { viewCount, likeCount } = videoDetails.statistics;
 
   return (
@@ -62,14 +62,12 @@ const YouTubeVideo = () => {
       </div>
       <div className="video-details">
         <h3>{title}</h3>
-        <div style={{ display: 'flex' }}>
-          <p>{likeCount}</p>
-          <img
-            src="images/upvote.png"
-            alt="like icon"
-            style={{ width: '15px', height: '15px' }}
-            />
-        </div>
+        <p>{likeCount}</p>
+        <img
+          src="images/upvote.png"
+          alt="like icon"
+          style={{ width: '20px', height: '20px' }}
+        />
         <p>{viewCount} Views</p>
       </div>
     </div>

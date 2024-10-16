@@ -1,12 +1,12 @@
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useOutletContext } from "react-router-dom";
 
-function PostList() {
+function ListPosts() {
+    const posts2 = useLoaderData();
     const { posts } = useOutletContext();
     const navigate = useNavigate();
     
     return (
         <>
-            <h2>Post base site</h2>
             <ul>
                 {posts.map((post) => (
                     <li key={post.uuid}>
@@ -26,4 +26,4 @@ function PostList() {
     );
 }
 
-export default PostList;
+export default ListPosts;

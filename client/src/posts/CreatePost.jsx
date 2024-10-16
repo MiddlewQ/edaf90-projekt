@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import Post from "./Post";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
-function PostForm() {
+function CreatePost() {
     const [title, setTitle] = useState('');
     const [postContent, setPostContent] = useState('');
     const [errors, setErrors] = useState('')
@@ -115,4 +115,4 @@ function PostForm() {
     )
 }
 
-export default PostForm;
+export default CreatePost;

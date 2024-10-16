@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 export default function Navbar() {
     return (
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-tabs navbar">
         <li className="nav-item">
             <NavLink className="nav-link" to="/">
                 Start

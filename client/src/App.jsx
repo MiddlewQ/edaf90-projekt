@@ -18,8 +18,8 @@ function App() {
     return (
         <>
 
-        <div className="container-fluid py-4">
-            <Header />
+        <div className="container py-4">
+            {/* <Header /> */}
             <Navbar />
             <Outlet context={{ addPost, posts }}/>
             <Footer />

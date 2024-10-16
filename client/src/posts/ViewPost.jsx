@@ -1,7 +1,7 @@
 import { useParams, useOutletContext} from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 
-function PostDetail() {
+function ViewPost() {
     const { postId } = useParams();
     const { posts } = useOutletContext();
     const post = posts.find(p => p.uuid === postId);
@@ -20,4 +20,4 @@ function PostDetail() {
     );
 }
 
-export default PostDetail;
+export default ViewPost;
