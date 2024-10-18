@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import About from './About'
-import YouTubeVideo from "./YoutubeVideo";
+import YouTubeVideo from "./youtube/Video";
 import CreatePost from "./posts/CreatePost";
 import ListPosts from './posts/ListPosts'
 import ViewPost from "./posts/ViewPost";
 import postsLoader from "./posts/postsLoader";
+import videoLoader from "./youtube/videoLoader";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                loader: videoLoader,
                 Component: YouTubeVideo,
             },
             {
