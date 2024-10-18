@@ -44,7 +44,6 @@ const YouTubeVideo = () => {
     return <div>No video details available.</div>;
   }
 
-  console.log(videoDetails.snippet);
   const { title } = videoDetails.snippet;
   const { viewCount, likeCount } = videoDetails.statistics;
 

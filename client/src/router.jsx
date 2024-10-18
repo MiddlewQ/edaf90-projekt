@@ -5,11 +5,12 @@ import YouTubeVideo from "./YoutubeVideo";
 import CreatePost from "./posts/CreatePost";
 import ListPosts from './posts/ListPosts'
 import ViewPost from "./posts/ViewPost";
-import postsLoader from "./posts/postLoader";
+import postsLoader from "./posts/postsLoader";
 
 const router = createBrowserRouter([
     {
         Component: App,
+        loader: postsLoader,
         children: [
             {
                 index: true,
@@ -21,7 +22,6 @@ const router = createBrowserRouter([
             }, 
             {
                 path: "posts",
-                // loader: postsLoader,
                 Component: ListPosts,
                 children: []
             },

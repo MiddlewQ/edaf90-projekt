@@ -14,7 +14,7 @@ function ViewPost() {
         <div className="container col-12">
             <div className="row h-200 p-5 bg-light border rounded">
                 <h2>{post.title}</h2>
-                <ReactMarkdown>{post.postContent}</ReactMarkdown>
+                <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
         </div>
     );

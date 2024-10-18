@@ -3,28 +3,28 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Navbar from './Navbar';
 import YouTubeVideo from './YoutubeVideo'
 
 
 function App() {
-    const [posts, setPosts] = useState([])
+  const loadedPosts = useLoaderData();
+  const [posts, setPosts] = useState(loadedPosts);
 
-    function addPost(post) {
-      setPosts([...posts, post]);
-    }
+  function addPost(post) {
+    setPosts([...posts, post]);
+  }
 
-    return (
-        <>
-
-        <div className="container py-4">
-            {/* <Header /> */}
-            <Navbar />
-            <Outlet context={{ addPost, posts }}/>
-            <Footer />
-        </div>
-        </>
+  return (
+    <>
+    <div className="container py-4">
+      {/* <Header /> */}
+      <Navbar />
+      <Outlet context={{ addPost, posts }}/>
+      <Footer />
+    </div>
+    </>
   )
 }
 

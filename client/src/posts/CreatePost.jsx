@@ -6,7 +6,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 
 function CreatePost() {
     const [title, setTitle] = useState('');
-    const [postContent, setPostContent] = useState('');
+    const [content, setPostContent] = useState('');
     const [errors, setErrors] = useState('')
     const [touched, setTouched] = useState(false);
     const { addPost } = useOutletContext();
@@ -43,34 +43,29 @@ function CreatePost() {
         event.preventDefault();
         setTouched(true);
 
-        if (title === "" || postContent === "") {
+        if (title === "" || content === "") {
             setErrors("All fields must be filled!")
             return;
         }
         
         const post = new Post();
         post.setTitle(title);
-        post.setPostContent(postContent);
+        post.setContent(content);
     
         addPost(post);
         const response = await fetch('http://localhost:3000/posts/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(post),
         });
     
         if(!response.ok) {
-        throw new error("Failure to upload post");
-        return;
+            throw new Error("Failure to upload post");
         }
     
-        const result = await response.json();
-
         navigate('/posts');
-        setTitle("");
-        setPostContent("");
         setTouched(false);
     }
 
@@ -108,7 +103,7 @@ function CreatePost() {
                 <div className="mt-5"> 
                     <h3>Preview</h3>
                     <ReactMarkdown>{`## ${title || ''}`}</ReactMarkdown>
-                    <ReactMarkdown>{postContent}</ReactMarkdown>
+                    <ReactMarkdown>{content}</ReactMarkdown>
                 </div>
             </div>
         </div>

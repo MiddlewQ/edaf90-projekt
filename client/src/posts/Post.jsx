@@ -5,10 +5,10 @@ class Post {
         this.uuid = uuidv4();
         if (copy instanceof Post) {
             this.title = copy.title;
-            this.postContent = copy.postContent;
+            this.content = copy.content;
         } else {
             this.title = "";
-            this.postContent = "";
+            this.content = "";
         }
     }
 
@@ -17,8 +17,8 @@ class Post {
         return this;
     }
 
-    setPostContent(postContent) {
-        this.postContent = postContent;
+    setContent(content) {
+        this.content = content;
         return this;
     }
 
