@@ -1,28 +1,16 @@
 {
   "posts": [
     {
-      "id": "c797",
-      "uuid": "32e55ea6-5fb9-45fe-9756-1c60dcb79b56",
-      "title": "numbers",
-      "content": "11111111111111111111111111111111111111111111111112222"
+      "id": "6ce1",
+      "uuid": "4c38e2ae-72c8-4388-9df4-b76cce8fec32",
+      "title": "React Router - Feature Overview",
+      "content": "### Client Side Routing\n\nReact Router enables \"client side routing\".\n\nIn traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.\n\nClient side routing allows your app to update the URL from a link click without making another request for another document from the server. Instead, your app can immediately render some new UI and make data requests with fetch to update the page with new information.\n\nThis enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.\n\nClient side routing is enabled by creating a Router and linking/submitting to pages with Link and <Form>:\n\n```react\nimport * as React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport {\n  createBrowserRouter,\n  RouterProvider,\n  Route,\n  Link,\n} from \"react-router-dom\";\n\nconst router = createBrowserRouter([\n  {\n    path: \"/\",\n    element: (\n      <div>\n        <h1>Hello World</h1>\n        <Link to=\"about\">About Us</Link>\n      </div>\n    ),\n  },\n  {\n    path: \"about\",\n    element: <div>About</div>,\n  },\n]);\n\ncreateRoot(document.getElementById(\"root\")).render(\n  <RouterProvider router={router} />\n);\n```"
     },
     {
-      "id": "c798",
-      "uuid": "32e55ea6-5fb9-45fe-9756-1c60dcb79b57",
-      "title": "letters",
-      "content": "abcdefghijklmnopqrstuvwxyzåäö"
-    },
-    {
-      "id": "9aea",
-      "uuid": "89acddad-a38d-44fb-95f5-7cc84982d378",
-      "title": "test",
-      "content": "alsökjfdöklafjadsklöfjöasdlkfjöaklsdjfölajfölkasdjfölaksjfölj ewoipfj qewpoifj weqpoif \n## ljaksdfja\n```py\ntesting 123123123l12j3öl12kj3klö12j3lk12j This is some codoing\n```"
-    },
-    {
-      "id": "de56",
-      "uuid": "e53d8b04-a736-4b84-8ecb-d8e96ad18f5e",
-      "title": "INVISIBLE TEXT WOW",
-      "content": "`````````````````````````````````````````````````````````````````````````````````````````````````````\n1"
+      "id": "4b7c",
+      "uuid": "a4d563df-8193-4e38-818c-c90d3520b991",
+      "title": "HTML for Dummies: A Simple Introduction",
+      "content": "Every HTML page starts with a simple structure. Here’s what it looks like:\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>My First Webpage</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n    <p>This is a paragraph on my first webpage.</p>\n</body>\n</html>\n</body>\n</html>\n```\n\nBreakdown:\n`<!DOCTYPE html>`: This tells the browser that you're using HTML5, the latest version of HTML.\n`<html>`: This tag wraps everything that makes up your webpage.\n`<head>`: Contains meta-information about your page, like the title.\n`<title>`: The text that appears in the browser tab.\n`<body>`: Everything inside the `<body>` tag is what shows up on the webpage itself.\n`<h1>`: A heading tag. `<h1>` is the biggest, and there are other headings like `<h2>`, `<h3>`, etc.\n`<p>`: A paragraph tag. This is used to display blocks of text.\n"
     }
   ]
 }

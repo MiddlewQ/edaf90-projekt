@@ -2,7 +2,6 @@ import { Link, useLoaderData, useNavigate, useOutletContext } from "react-router
 import ReactMarkdown from 'react-markdown';
 
 function ListPosts() {
-    const posts2 = useLoaderData();
     const { posts } = useOutletContext();
     const navigate = useNavigate();
 
@@ -33,13 +32,15 @@ function ListPosts() {
 }
 
 function PostPreview({ content }) {
-    const previewContent = content.slice(0, 100); // Adjust this to only take visible characters if needed
-
+    const previewContent = content.slice(0, 100); 
+    let continuation = "...";
+    if (content.length < 100) {
+        continuation = "";
+    }
     return (
         <div className="post-preview">
-            {/* Apply the "small-text" class to style it */}
             <ReactMarkdown className="post-preview small-text">
-                {previewContent}
+                {previewContent + continuation}
             </ReactMarkdown>
         </div>
     );
