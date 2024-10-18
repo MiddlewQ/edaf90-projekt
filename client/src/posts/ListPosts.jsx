@@ -16,7 +16,7 @@ function ListPosts() {
                             <h5 className="card-title">{post.title}</h5>
                             </div>
                             <div className="card-body">
-                                <ReactMarkdown>{post.content.slice(0, 100)}</ReactMarkdown>
+                                <PostPreview content = {post.content}/>
                             </div>
                         </div>
                     </Link>
@@ -29,6 +29,19 @@ function ListPosts() {
                 New Post
             </button>
         </>
+    );
+}
+
+function PostPreview({ content }) {
+    const previewContent = content.slice(0, 100); // Adjust this to only take visible characters if needed
+
+    return (
+        <div className="post-preview">
+            {/* Apply the "small-text" class to style it */}
+            <ReactMarkdown className="post-preview small-text">
+                {previewContent}
+            </ReactMarkdown>
+        </div>
     );
 }
 

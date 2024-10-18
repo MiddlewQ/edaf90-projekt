@@ -48,8 +48,8 @@ const YouTubeVideo = () => {
   const { viewCount, likeCount } = videoDetails.statistics;
 
   return (
-    <div>
-      <div className="video-container">
+    <div className="start-page">
+      <div className="video-container"> 
         <iframe
           width="560"
           height="315"

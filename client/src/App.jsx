@@ -3,9 +3,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import Navbar from './Navbar';
-import YouTubeVideo from './YoutubeVideo'
+import YouTubeVideo from './YoutubeVideo';
 
 
 function App() {
@@ -21,7 +21,9 @@ function App() {
     <div className="container py-4">
       {/* <Header /> */}
       <Navbar />
-      <Outlet context={{ addPost, posts }}/>
+      <div className="outlet-container">
+        <Outlet context={{ addPost, posts }}/>
+      </div>
       <Footer />
     </div>
     </>
@@ -39,8 +41,15 @@ function Header() {
   
   function Footer() {
     return (
-    <footer className="pt-3 mt-4 text-muted border-top">
-    EDAF90 - webprogrammering
+    <footer className="pt-3 mt-4 text-muted border-top footer-container">
+      <div className="footer-links-container">
+        <Link to="https://github.com/MiddlewQ/edaf90-projekt">
+          <img src="/images/github_logo.png" className="footer-icon" />
+        </Link>
+        <Link to="https://youtube.com">
+        <img src="/images/youtube_logo.png" className="footer-icon" />
+        </Link>
+      </div>
     </footer>
     )
   }

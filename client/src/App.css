@@ -1,9 +1,9 @@
 #root {
   padding: 2rem;
-  text-align: left; /* Ensure content is left-aligned */
+  text-align: left; 
 }
 
-/* Other existing styles */
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -40,7 +40,45 @@
   color: #888;
 }
 
+.start-page {
+  justify-content: center;    
+  display:grid;
+}
+
+.outlet-container {
+  padding: 2em;
+}
+
 .video-details {
   font-size: 16px;
   margin-top: 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+.footer-links-container {
+  max-height: 150px;  
+  width: 100%;       
+  margin: 0 auto;     
+  overflow-y: auto;   
+  padding: 10px;
+  display: flex;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;         
+
+}
+
+.footer-icon {
+  max-width: 50px; 
+  max-height: 50px;
+  object-fit: contain; 
+  margin-right: 10px; 
 }
