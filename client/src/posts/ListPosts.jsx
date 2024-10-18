@@ -16,7 +16,7 @@ function ListPosts() {
                             <h5 className="card-title">{post.title}</h5>
                             </div>
                             <div className="card-body">
-                                <ReactMarkdown>{post.postContent.slice(0,300) + "..."}</ReactMarkdown>
+                                <ReactMarkdown>{post.content.slice(0, 100)}</ReactMarkdown>
                             </div>
                         </div>
                     </Link>
