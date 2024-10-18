@@ -52,7 +52,7 @@ function CreatePost() {
         post.setTitle(title);
         post.setContent(content);
     
-        addPost(post);
+        
         const response = await fetch('http://localhost:3000/posts/', {
             method: 'POST',
             headers: {
@@ -60,10 +60,10 @@ function CreatePost() {
             },
             body: JSON.stringify(post),
         });
-    
         if(!response.ok) {
             throw new Error("Failure to upload post");
         }
+        addPost(post);
     
         navigate('/posts');
         setTouched(false);

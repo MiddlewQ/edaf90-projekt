@@ -1,16 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import {VideoDetails} from './Details';
-
+import { VideoDetails } from './Details';
 
 function YouTubeVideo() {
-  const videoDetails = useLoaderData(); 
-  if (!videoDetails) {
-    return <div>No video details available.</div>;
-  }
+  const videoDetails = useLoaderData();
 
-  const { title, description, channelTitle, publishedAt, thumbnails, tags } = videoDetails.snippet;
-  const { viewCount, likeCount, commentCount } = videoDetails.statistics;
+  const videoId = "kW6DydnOcjA";
 
   return (
     <div className="start-page">
@@ -19,13 +14,16 @@ function YouTubeVideo() {
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${videoDetails.id}`}
-          title={title}
+          src={`https://www.youtube.com/embed/${videoId}`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>
-      <VideoDetails videoDetails={videoDetails} />
+      {videoDetails ? (
+        <VideoDetails videoDetails={videoDetails} />
+      ) : (
+        <div>Error loading video details. Please try again later.</div>
+      )}
     </div>
   );
 }

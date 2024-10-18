@@ -1,12 +1,12 @@
 export async function postsLoader() {
-    // const posts = {};
+    try {
 
-    const data = await safeFetchJson("http://localhost:3000/posts");
-
-
-    await new Promise(resolve => setTimeout(resolve, 500));
-    console.log(data);
-    return data;
+        const data = await safeFetchJson("http://localhost:3000/posts");
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return data;
+    } catch {
+        return [];
+    }
 }
 
 function safeFetchJson(url) {

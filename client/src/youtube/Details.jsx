@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export function VideoDetails({ videoDetails }) {
-  const { title, description, channelTitle, publishedAt, thumbnails, tags } = videoDetails.snippet;
+  const { title, channelTitle, publishedAt, tags } = videoDetails.snippet;
   const { viewCount, likeCount, commentCount } = videoDetails.statistics;
 
   return (
