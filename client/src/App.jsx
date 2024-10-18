@@ -16,7 +16,6 @@ function App() {
   return (
     <>
     <div className="container py-4">
-      {/* <Header /> */}
       <Navbar />
       <div className="outlet-container">
         <Outlet context={{ addPost, posts }}/>
@@ -28,28 +27,20 @@ function App() {
 }
 
 
-function Header() {
-    return (
-    <header className="pb-3 mb-4 border-bottom">
-        <span className="fs-1">Programming Blog</span>
-      </header>
-    )
-  }
-  
-  function Footer() {
-    return (
-    <footer className="pt-3 mt-4 text-muted border-top footer-container">
-      <div className="footer-links-container">
-        <Link to="https://github.com/MiddlewQ/edaf90-projekt">
-          <img src="/images/github_logo.png" className="footer-icon" />
-        </Link>
-        <Link to="https://youtube.com">
-        <img src="/images/youtube_logo.png" className="footer-icon" />
-        </Link>
-      </div>
-    </footer>
-    )
-  }
-  
+function Footer() {
+  return (
+  <footer className="pt-3 mt-4 text-muted border-top footer-container">
+    <div className="footer-links-container">
+      <Link to="https://github.com/MiddlewQ/edaf90-projekt">
+        <img src="/images/github_logo.png" className="footer-icon" />
+      </Link>
+      <Link to="https://youtube.com">
+      <img src="/images/youtube_logo.png" className="footer-icon" />
+      </Link>
+    </div>
+  </footer>
+  )
+}
+
 
 export default App
