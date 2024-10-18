@@ -1,24 +1,30 @@
 import { Link, useLoaderData, useNavigate, useOutletContext } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 
 function ListPosts() {
     const posts2 = useLoaderData();
     const { posts } = useOutletContext();
     const navigate = useNavigate();
-    
+
     return (
         <>
-            <ul>
+            <div className="post-list">
                 {posts.map((post) => (
-                    <li key={post.uuid}>
-                        <Link className="link" to={`/posts/${post.uuid}`}>
-                            {post.title}
-                        </Link>
-                    </li>
+                    <Link key={post.uuid} to={`/posts/${post.uuid}`} className="post-link">
+                        <div className="card mt-2">
+                            <div className="card-header">
+                            <h5 className="card-title">{post.title}</h5>
+                            </div>
+                            <div className="card-body">
+                                <ReactMarkdown>{post.postContent.slice(0,300) + "..."}</ReactMarkdown>
+                            </div>
+                        </div>
+                    </Link>
                 ))}
-            </ul>
+            </div>
             <button 
                 type="button" 
-                className='mt-4 btn btn-success' 
+                className="mt-4 btn btn-success" 
                 onClick={() => navigate('/posts/new-post')}>
                 New Post
             </button>

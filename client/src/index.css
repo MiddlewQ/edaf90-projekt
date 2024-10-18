@@ -79,23 +79,27 @@ button:focus-visible {
 
 .navbar {
   display: flex;
-  justify-content: center; /* Align items in the center */
+  justify-content: center; 
   align-items: center;
   padding: 10px;
-  background-color: #f8f9fa; /* or whatever background you want */
+  background-color: #f8f9fa; 
 }
 
 .nav-item {
-  margin: 0; /* Remove any margin between items */
-  list-style-type: none; /* Ensure no list styles */
+  margin: 0; 
+  list-style-type: none; 
 }
 
 .nav-link {
-  padding: 0 15px; /* Add a bit of padding between the links */
-  text-decoration: none; /* Remove underline */
-  color: #646cff; /* Link color */
+  padding: 0 15px; 
+  text-decoration: none; 
+  color: #646cff; 
 }
 
 .nav-link:hover {
-  color: #535bf2; /* Link hover color */
+  color: #535bf2; 
+}
+
+.card-body {
+  border: 1px solid;
 }
